@@ -1,7 +1,7 @@
 # Finding homopolymers in FASTA file
 
 
-#num must be one smaller then desired - if looking for lengths of 4 and above imput 3
+#num will output all lengths >num, ex. if looking for lengths greater than or equal to 4 num=3
 def find_hmer(file, output, num):
     with open(file, "r") as infile, open(output, "w+") as w:
         contig = base = start = end = -1
