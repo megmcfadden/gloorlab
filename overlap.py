@@ -2,7 +2,6 @@
 import pandas as pd
 import numpy as np
 import gffpandas.gffpandas as gffpd
-import csv
 
 def find_overlap(file_hmer, file_orf, file_output):
     with open(file_output, "w+") as w:
@@ -18,9 +17,7 @@ def find_overlap(file_hmer, file_orf, file_output):
             #remove excess info from gff data frame
             selected_columns= dfORFLarge[["seq_id","start","end"]]
             dfORF = selected_columns.copy()
-
-
-            #THIS IS WHERE THE GOOD SHIT STARTS
+            
             #using numpy array to combine the subtraction of Hmer from ORF for both start and end
             arrayH=np.array(dfH[['Start','End']])
 
@@ -40,5 +37,5 @@ def find_overlap(file_hmer, file_orf, file_output):
 
             #add the in ORF column to the hmer data frames
             dfH['InORF(T/F)']=T_F_dataframe
-            print(dfH)
+            #save data frame to txt file
             dfH.to_csv(w, sep="\t")
