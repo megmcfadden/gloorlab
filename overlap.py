@@ -14,7 +14,7 @@ def find_overlap(pairs, file_output):
             print(pairs[i][0])
             print(pairs[i][1])
             #create data frames from  txt - hmer.py output and gff prodigal output files
-            dfH = pd.read_table(pairs[i][0], names=["Sequence","Start","End","Length","Base"], sep='\t')
+            dfH = pd.read_table(pairs[i][0], names=["Sequence","Acession_ID","Start","End","Length","Base"], sep='\t')
             ORFLarge = gffpd.read_gff3(pairs[i][1])
             #read gff makes a strange data frame structure - convert to standard Pandas data frame
             dfORFLarge = pd.DataFrame(ORFLarge.df)
@@ -26,13 +26,13 @@ def find_overlap(pairs, file_output):
 
             #using numpy array to combine the subtraction of Hmer from ORF for both start and end
             arrayH=np.array(dfH[['Start','End']])
-            
+
             arrayORF=np.array(dfORF[['start','end']])
-            
+
             #create a 3D array which is sets=numbers of hmers, rows=#open reading frames columns=2 (start,end)
             combined=(arrayORF - arrayH[:,np.newaxis]).reshape(-1,arrayORF.shape[0],2)
             #Find and denote true or false for when True = (negative -Start), (positive -end)
-            
+
             T_F=np.where((combined[:,:,0] <0)&(combined[:,:,1]>0),True,False).reshape(-1,1,combined.shape[1])
 
             #if set contains True = True if not = False, reduce to one value per set
@@ -43,12 +43,12 @@ def find_overlap(pairs, file_output):
             #add the in ORF column to the hmer data frames
             dfH['InORF(T/F)']=T_F_dataframe
             #print(dfH)
-            dfCounts=dfH[['Sequence','Length','Base','InORF(T/F)']].value_counts().sort_index().reset_index(name="Counts")
+            dfCounts=dfH[['Sequence','Acession_ID','Length','Base','InORF(T/F)']].value_counts().sort_index().reset_index(name="Counts")
             #print(dfCounts)
             Hmer_total.append(dfCounts)
-            
+
             i+=1
-        
+
         Counts=pd.concat(Hmer_total)
 
         Counts.to_csv(w, sep="\t", index=False)
