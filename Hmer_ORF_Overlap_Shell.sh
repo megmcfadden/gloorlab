@@ -10,9 +10,9 @@ prodigal -i $fasta -o $output -a protein-translations.faa -f gff
 done
 '''
 #Execute HMER_Finder script
-path='/home/meg/Documents/project'
+path=/home/mmcfad/NCBI_Genomes
 python3 Hmer-finder.py $path
 
 #Execute Overlap-finder
-outputname="NAME_of_Output_file.txt"
+outputname="May_10th_2021.txt"
 python3 Overlap-finder.py $path $outputname
