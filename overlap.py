@@ -14,7 +14,8 @@ def find_overlap(pairs, file_output):
             print(pairs[i][0])
             print(pairs[i][1])
             #create data frames from  txt - hmer.py output and gff prodigal output files
-            dfH = pd.read_table(pairs[i][0], names=["Sequence","Acession_ID","Start","End","Length","Base"], sep='\t')
+            dfH = pd.read_table(pairs[i][0], names=["Sequence","Acession_ID","Start","End","Length","Base","Info"], sep='\t')
+
             ORFLarge = gffpd.read_gff3(pairs[i][1])
             #read gff makes a strange data frame structure - convert to standard Pandas data frame
             dfORFLarge = pd.DataFrame(ORFLarge.df)
@@ -23,11 +24,24 @@ def find_overlap(pairs, file_output):
             #remove excess info from gff data frame
             selected_columns= dfORFLarge[["seq_id","start","end"]]
             dfORF = selected_columns.copy()
+            print(type(dfH))
+            print(type(dfORF))
+            print(dfORF)
+            #retain only the hmers from genomes that are complete
+            hmer_rows=dfH[dfH["Info"].str.contains("completegenome")]
+            print(hmer_rows)
+            #retain the open reading frames that contain the same accession ID that is saved in the hmer rows
+            sequence_complete=hmer_rows.iloc[0,0]
+            print(sequence_complete)
+            orf_rows=dfORF[dfORF["seq_id"].str.contains(sequence_complete)]
 
+            print(hmer_rows)
+            print(orf_rows)
             #using numpy array to combine the subtraction of Hmer from ORF for both start and end
-            arrayH=np.array(dfH[['Start','End']])
 
-            arrayORF=np.array(dfORF[['start','end']])
+            arrayH=np.array(hmer_rows[['Start','End']])
+
+            arrayORF=np.array(orf_rows[['start','end']])
 
             #create a 3D array which is sets=numbers of hmers, rows=#open reading frames columns=2 (start,end)
             combined=(arrayORF - arrayH[:,np.newaxis]).reshape(-1,arrayORF.shape[0],2)
@@ -41,10 +55,10 @@ def find_overlap(pairs, file_output):
             T_F_dataframe=pd.DataFrame(data=T_F_clean,columns=['In_ORF'])
 
             #add the in ORF column to the hmer data frames
-            dfH['InORF(T/F)']=T_F_dataframe
-            #print(dfH)
-            dfCounts=dfH[['Sequence','Acession_ID','Length','Base','InORF(T/F)']].value_counts().sort_index().reset_index(name="Counts")
-            #print(dfCounts)
+            hmer_rows['InORF(T/F)']=T_F_dataframe
+            print(dfH)
+            dfCounts=hmer_rows[['Sequence','Acession_ID','Length','Base','InORF(T/F)','Info']].value_counts().sort_index().reset_index(name="Counts")
+            print(dfCounts)
             Hmer_total.append(dfCounts)
 
             i+=1
