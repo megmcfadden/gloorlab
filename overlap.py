@@ -24,9 +24,6 @@ def find_overlap(pairs, file_output):
             #remove excess info from gff data frame
             selected_columns= dfORFLarge[["seq_id","start","end"]]
             dfORF = selected_columns.copy()
-            print(type(dfH))
-            print(type(dfORF))
-            print(dfORF)
             #retain only the hmers from genomes that are complete
             hmer_rows=dfH[dfH["Info"].str.contains("completegenome")]
             print(hmer_rows)
@@ -56,9 +53,9 @@ def find_overlap(pairs, file_output):
 
             #add the in ORF column to the hmer data frames
             hmer_rows['InORF(T/F)']=T_F_dataframe
-            print(dfH)
+
             dfCounts=hmer_rows[['Sequence','Acession_ID','Length','Base','InORF(T/F)','Info']].value_counts().sort_index().reset_index(name="Counts")
-            print(dfCounts)
+
             Hmer_total.append(dfCounts)
 
             i+=1
