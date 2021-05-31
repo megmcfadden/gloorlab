@@ -11,7 +11,7 @@
 #Execute HMER_Finder script
 path=/Volumes/ubdata/mmcfad/NCBI_Genomes
 #path=/home/meg/Documents/project
-python3 Hmer-finder.py $path
+#python3 Hmer-finder.py $path
 
 #Execute Overlap-finder
 outputname="Output_files/May_31st_2021.txt"

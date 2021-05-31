@@ -25,5 +25,5 @@ for i in files_fasta:
 
 
 pairs=[files_fasta,file_new,acc]
-print(pairs)
+
 find_hmer(pairs,3)

@@ -27,7 +27,7 @@ def find_overlap(pairs, file_output):
             print(type(dfH))
             print(type(dfORF))
             #retain only the hmers from genomes that are complete
-            hmer_rows=dfH[dfH["Info"].str.contains("completegenome")]
+            hmer_rows=dfH[dfH["Info"].str.contains("complete")]
             print(hmer_rows)
             #retain the open reading frames that contain the same accession ID that is saved in the hmer rows
             sequence_complete=hmer_rows.iloc[0,0]
