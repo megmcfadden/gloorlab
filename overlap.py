@@ -20,7 +20,7 @@ def find_overlap(pairs, file_output):
             #read gff makes a strange data frame structure - convert to standard Pandas data frame
             dfORFLarge = pd.DataFrame(ORFLarge.df)
 
-            print(dfH)
+
             #remove excess info from gff data frame
             selected_columns= dfORFLarge[["seq_id","start","end"]]
             dfORF = selected_columns.copy()
@@ -54,6 +54,7 @@ def find_overlap(pairs, file_output):
 
                 i+=1
             else:
+                print("Skip")
                 i+=1
 
         Counts=pd.concat(Hmer_total)
