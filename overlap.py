@@ -24,41 +24,37 @@ def find_overlap(pairs, file_output):
             #remove excess info from gff data frame
             selected_columns= dfORFLarge[["seq_id","start","end"]]
             dfORF = selected_columns.copy()
-            print(type(dfH))
-            print(type(dfORF))
-            #retain only the hmers from genomes that are complete
-            hmer_rows=dfH[dfH["Info"].str.contains("complete")]
-            print(hmer_rows)
-            #retain the open reading frames that contain the same accession ID that is saved in the hmer rows
-            sequence_complete=hmer_rows.iloc[0,0]
-            print(sequence_complete)
-            orf_rows=dfORF[dfORF["seq_id"].str.contains(sequence_complete)]
-            print(orf_rows)
-            #using numpy array to combine the subtraction of Hmer from ORF for both start and end
 
-            arrayH=np.array(hmer_rows[['Start','End']])
+            scaffolds=dfH['Sequence'].nunique()
+            if scaffolds == 1:
 
-            arrayORF=np.array(orf_rows[['start','end']])
+                #using numpy array to combine the subtraction of Hmer from ORF for both start and end
 
-            #create a 3D array which is sets=numbers of hmers, rows=#open reading frames columns=2 (start,end)
-            combined=(arrayORF - arrayH[:,np.newaxis]).reshape(-1,arrayORF.shape[0],2)
-            #Find and denote true or false for when True = (negative -Start), (positive -end)
+                arrayH=np.array(hmer_rows[['Start','End']])
 
-            T_F=np.where((combined[:,:,0] <0)&(combined[:,:,1]>0),True,False).reshape(-1,1,combined.shape[1])
+                arrayORF=np.array(orf_rows[['start','end']])
 
-            #if set contains True = True if not = False, reduce to one value per set
-            T_F_clean = np.any((T_F[:,0,:]==True),axis=1).reshape(-1,1)
+                #create a 3D array which is sets=numbers of hmers, rows=#open reading frames columns=2 (start,end)
+                combined=(arrayORF - arrayH[:,np.newaxis]).reshape(-1,arrayORF.shape[0],2)
+                #Find and denote true or false for when True = (negative -Start), (positive -end)
 
-            T_F_dataframe=pd.DataFrame(data=T_F_clean,columns=['In_ORF'])
+                T_F=np.where((combined[:,:,0] <0)&(combined[:,:,1]>0),True,False).reshape(-1,1,combined.shape[1])
 
-            #add the in ORF column to the hmer data frames
-            hmer_rows['InORF(T/F)']=T_F_dataframe
+                #if set contains True = True if not = False, reduce to one value per set
+                T_F_clean = np.any((T_F[:,0,:]==True),axis=1).reshape(-1,1)
 
-            dfCounts=hmer_rows[['Sequence','Acession_ID','Length','Base','InORF(T/F)','Info']].value_counts().sort_index().reset_index(name="Counts")
+                T_F_dataframe=pd.DataFrame(data=T_F_clean,columns=['In_ORF'])
 
-            Hmer_total.append(dfCounts)
+                #add the in ORF column to the hmer data frames
+                hmer_rows['InORF(T/F)']=T_F_dataframe
 
-            i+=1
+                dfCounts=hmer_rows[['Sequence','Acession_ID','Length','Base','InORF(T/F)','Info']].value_counts().sort_index().reset_index(name="Counts")
+
+                Hmer_total.append(dfCounts)
+
+                i+=1
+            else:
+                i+=1
 
         Counts=pd.concat(Hmer_total)
 
