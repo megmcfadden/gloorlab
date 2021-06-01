@@ -30,9 +30,9 @@ def find_overlap(pairs, file_output):
 
                 #using numpy array to combine the subtraction of Hmer from ORF for both start and end
 
-                arrayH=np.array(hmer_rows[['Start','End']])
+                arrayH=np.array(dfH[['Start','End']])
 
-                arrayORF=np.array(orf_rows[['start','end']])
+                arrayORF=np.array(dfORF[['start','end']])
 
                 #create a 3D array which is sets=numbers of hmers, rows=#open reading frames columns=2 (start,end)
                 combined=(arrayORF - arrayH[:,np.newaxis]).reshape(-1,arrayORF.shape[0],2)
@@ -46,9 +46,9 @@ def find_overlap(pairs, file_output):
                 T_F_dataframe=pd.DataFrame(data=T_F_clean,columns=['In_ORF'])
 
                 #add the in ORF column to the hmer data frames
-                hmer_rows['InORF(T/F)']=T_F_dataframe
+                dfH['InORF(T/F)']=T_F_dataframe
 
-                dfCounts=hmer_rows[['Sequence','Acession_ID','Length','Base','InORF(T/F)','Info']].value_counts().sort_index().reset_index(name="Counts")
+                dfCounts=dfH[['Sequence','Acession_ID','Length','Base','InORF(T/F)','Info']].value_counts().sort_index().reset_index(name="Counts")
 
                 Hmer_total.append(dfCounts)
 
