@@ -6,18 +6,18 @@ import os, os.path
 import csv
 from csv import writer
 
-#path= /Volumes/ubdata/mmcfad/NCBI_Genomes
-path='/home/meg/Documents/project'
+path= '/Volumes/ubdata/mmcfad/NCBI_Genomes'
+
 orf_ext = ['*.gff']
 files_orf = [o for o_ext in orf_ext for o in glob.glob(os.path.join(path, o_ext))]
 
-overlap=pd.read_table("June_1st_2021.txt", sep='\t')
+overlap=pd.read_table("/Volumes/ubdata/mmcfad/NCBI_Genomes/Output_files/June_1st_2021.txt", sep='\t')
 
 expect_combined=[]
 
 table_df=pd.DataFrame(columns=["Sequence","Length","BP_inside","Expected","Hmer_inside(BP)", "Hmer_outside(BP)", "Observed"])
 
-with open("Observed_expected_test.txt", "w+") as w:
+with open("/Volumes/ubdata/mmcfad/NCBI_Genomes/Output_files/Observed_expected_test.txt", "w+") as w:
 
     for i in range(len(files_orf)):
         print(files_orf[i])
@@ -72,7 +72,7 @@ with open("Observed_expected_test.txt", "w+") as w:
 
     #convert expect_combined from list to a data frame
     expect_combined_df=pd.concat(expect_combined)
-    
+
     combined=pd.merge(observed,expect_combined_df, left_on=['Sequence'], right_on=["Sequence"], how='left')
     print(combined)
 
