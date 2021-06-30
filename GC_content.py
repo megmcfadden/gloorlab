@@ -36,6 +36,7 @@ with open("/Volumes/ubdata/mmcfad/NCBI_Genomes/Output_files/GC_content.txt", "w+
             header = orf.header
 
             split = header.split(" ")
+            print(split)
             select_split=split[15].replace(";","=").split("=")
             print(select_split)
             GC=select_split[2]
