@@ -37,7 +37,7 @@ with open("/Volumes/ubdata/mmcfad/NCBI_Genomes/Output_files/GC_content.txt", "w+
 
             split = header.split(" ")
             select_split=split[15].replace(";","=").split("=")
-            GC=int(select_split[2])
+            GC=select_split[2]
 
             seq=ORF["seq_id"].unique()
             sequence=seq[0]
