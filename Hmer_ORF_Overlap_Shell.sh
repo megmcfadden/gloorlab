@@ -1,8 +1,8 @@
 
 
 #Run prodigal to get the open reading frames
-#for fasta in $(ls /home/meg/Documents/project/*.fna); do
-#output=$(python3 prodigal_filenames.py $fasta)
+for fasta in $(ls /Volumes/ubdata/mmcfad/NCBI_Genomes*.fna); do
+output=$(python3 prodigal_filenames.py $fasta)
 #echo $fasta
 #echo $output
 #prodigal -i $fasta -o $output -a protein-translations.faa -f gff
@@ -14,5 +14,5 @@ path=/Volumes/ubdata/mmcfad/NCBI_Genomes
 #python3 Hmer-finder.py $path
 
 #Execute Overlap-finder
-outputname="Output_files/June_1st_2021.txt"
+outputname="Output_files/June_30th_2021.txt"
 python3 Overlap-finder.py $path $outputname

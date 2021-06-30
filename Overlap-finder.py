@@ -5,7 +5,7 @@ import os, os.path
 import sys
 
 hmer_ext = ['*.txt']
-orf_ext = ['*.gff']
+orf_ext = ['*prokkaorf.gff']
 
 
 path = sys.argv[1]
