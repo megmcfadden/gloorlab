@@ -19,7 +19,7 @@ expect_combined=[]
 
 table_df=pd.DataFrame(columns=["Sequence","Length","BP_inside","Expected","Hmer_inside(BP)", "Hmer_outside(BP)", "Observed"])
 
-with open("/Volumes/ubdata/mmcfad/NCBI_Genomes/Output_files/GC_content.txt", "w+") as w:
+with open("/Volumes/ubdata/mmcfad/NCBI_Genomes/Output_files/Code_content.txt", "w+") as w:
 
     for i in range(len(files_orf)):
         print(files_orf[i])
