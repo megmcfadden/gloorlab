@@ -5,9 +5,9 @@ import os, os.path
 import sys
 import pandas as pd
 
-in= pd.read_table('tene_sub_filenames_in.txt')
-out=pd.read_table('tene')
-pairs=list(zip(in,out))
+hmer= pd.read_table('tene_sub_filenames_in.txt')
+gff=pd.read_table('tene')
+pairs=list(zip(hmer,gff))
 print(pairs)
 
 
