@@ -5,7 +5,7 @@ import os, os.path
 import sys
 import pandas as pd
 
-pairs= pd.DataFrame('tene_sub_filenames.txt')
+pairs= pd.read_table('tene_sub_filenames.txt')
 print(pairs)
 
 '''hmer_ext = ['*.txt']
