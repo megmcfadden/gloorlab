@@ -32,7 +32,7 @@ txt = open("tene_sub_filenames_in.txt", "w")
 for element in tene_name_in:
     txt.write(element + "\n")
     txt.close
-txt_out = open("tene_sub_filenames_out", "w")
+txt_out = open("tene_sub_filenames_out.txt", "w")
 for element_out in tene_name_in:
     txt_out.write(element_out+"\n")
     txt_out.close
