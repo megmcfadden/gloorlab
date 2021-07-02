@@ -5,14 +5,15 @@ import os, os.path
 import sys
 import pandas as pd
 
-hmer= pd.read_table('tene_sub_filenames_in.txt')
+hmer= pd.read_table('tene_sub_filenames_in.txt',names=['hmer'])
 gff=pd.read_table('tene_sub_filenames_out.txt')
-pairs=[]
 
-for i in range(len(hmer)):
-    pairs.append((hmer[i],gff[i]))
+hmer['gff']=gff
+print(hmer)
 
-    
+pairs=hmer[['hmer','gff']].apply(tuple,axis=1).tolist()
+
+
 print(pairs)
 
 
