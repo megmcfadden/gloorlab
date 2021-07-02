@@ -1,5 +1,4 @@
 
-ls *.fna>tene_sub_filenames.txt
 #Run prodigal to get the open reading frames
 for fasta in $(cat 'tene_sub_filenames.txt'); do
 output=$(python3 prodigal_filenames.py $fasta)
