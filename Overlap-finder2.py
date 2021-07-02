@@ -9,7 +9,7 @@ hmer= pd.read_table('tene_sub_filenames_in.txt',names=['hmer'])
 gff=pd.read_table('tene_sub_filenames_out.txt')
 
 hmer['gff']=gff
-print(hmer)
+
 
 pairs=hmer[['hmer','gff']].apply(tuple,axis=1).tolist()
 
