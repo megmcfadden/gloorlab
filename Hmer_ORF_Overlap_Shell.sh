@@ -59,7 +59,7 @@ prodigal -i $fasta -o $output -a protein-translations.faa -f gff -g 4
 done'''
 
 #Execute HMER_Finder script
-#path=/Volumes/ubdata/mmcfad/NCBI_Genomes
+path=/Volumes/ubdata/mmcfad/NCBI_Genomes
 #path=/home/meg/Documents/project
 #python3 Hmer-finder.py $path
 
