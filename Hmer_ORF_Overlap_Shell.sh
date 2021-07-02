@@ -63,6 +63,6 @@ done'''
 #path=/home/meg/Documents/project
 #python3 Hmer-finder.py $path
 
-Execute Overlap-finder
+#Execute Overlap-finder
 outputname="Output_files/July_2_sub.txt"
 python3 Overlap-finder.py $path $outputname
