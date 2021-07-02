@@ -1,6 +1,6 @@
 import pandas as pd
 
-tene= pd.read_table("/home/meg/Documents/Tenericutes_GFC_num.txt")
+tene= pd.read_table("/home/meg/Documents/Mycoplasma_Spiroplasma_GFC_num.txt")
 
 filenames=pd.read_table("/home/meg/Documents/project/filenames.txt")
 
@@ -20,7 +20,7 @@ for t in range(len(tene_list)):
 print(tene_name)
 print(len(tene_name))
 
-txt = open("tene_file_names.txt", "w")
+txt = open("tene_sub_filenames.txt", "w")
 for element in tene_name:
     txt.write(element + "\n")
     txt.close
