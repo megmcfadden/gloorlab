@@ -24,4 +24,4 @@ for file in hmer2:
 print(pairs)
 
 
-find_hmer(pairs,'/Volumes/ubdata/mmcfad/NCBI_Genomes/Output_files/July_2_sub.txt')
+find_overlap(pairs,'/Volumes/ubdata/mmcfad/NCBI_Genomes/Output_files/July_2_sub.txt')
