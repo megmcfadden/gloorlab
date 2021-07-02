@@ -65,4 +65,4 @@ path=/Volumes/ubdata/mmcfad/NCBI_Genomes
 
 #Execute Overlap-finder
 outputname="Output_files/July_2_sub.txt"
-python3 Overlap-finder.py $path $outputname
+python3 Overlap-finder2.py $path $outputname
