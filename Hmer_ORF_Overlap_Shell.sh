@@ -6,7 +6,7 @@ output=$(python3 prodigal_filenames.py $fasta)
 echo $fasta
 echo $output
 prodigal -i $fasta -o $output -a protein-translations.faa -f gff -g 4
-#done
+done
 
 #Execute HMER_Finder script
 #path=/Volumes/ubdata/mmcfad/NCBI_Genomes
