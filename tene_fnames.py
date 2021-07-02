@@ -13,12 +13,16 @@ tene_name=[]
 for t in range(len(tene_list)):
 
     name=[f for f in fnames if tene_list[t] in f]
-    tene_name.append('/Volumes/ubdata/mmcfad/NCBI_Genomes/'+name[0])
+    name2=name[0].split('.fna')
+    organism_name= name2[0]
+    output= organism_name + '_4orf.gff'
+    tene_name.append('/Volumes/ubdata/mmcfad/NCBI_Genomes/'+name[0]+"*"+output)
 
     t+=1
 
 print(tene_name)
 print(len(tene_name))
+
 
 
 txt = open("tene_sub_filenames.txt", "w")
