@@ -1,4 +1,4 @@
-filelist="/Volumes/ubdata/mmcfad/NCBI_Genomes/GCF_000025845.1_ASM2584v1_genomic.fna
+'''filelist="/Volumes/ubdata/mmcfad/NCBI_Genomes/GCF_000025845.1_ASM2584v1_genomic.fna
 /Volumes/ubdata/mmcfad/NCBI_Genomes/GCF_000286675.1_ASM28667v1_genomic.fna
 /Volumes/ubdata/mmcfad/NCBI_Genomes/GCF_000023685.1_ASM2368v1_genomic.fna
 /Volumes/ubdata/mmcfad/NCBI_Genomes/GCF_008086545.1_ASM808654v1_genomic.fna
@@ -56,13 +56,13 @@ output=$(python3 prodigal_filenames.py $fasta)
 echo $fasta
 echo $output
 prodigal -i $fasta -o $output -a protein-translations.faa -f gff -g 4
-done
+done'''
 
 #Execute HMER_Finder script
 #path=/Volumes/ubdata/mmcfad/NCBI_Genomes
 #path=/home/meg/Documents/project
 #python3 Hmer-finder.py $path
 
-#Execute Overlap-finder
-#outputname="Output_files/June_30th_2021.txt"
-#python3 Overlap-finder.py $path $outputname
+Execute Overlap-finder
+outputname="Output_files/July_2_sub.txt"
+python3 Overlap-finder.py $path $outputname
