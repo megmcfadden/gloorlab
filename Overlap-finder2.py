@@ -5,5 +5,5 @@ import os, os.path
 import sys
 import pandas as pd
 
-pairs= 'tene_sub_filenames.txt')
+pairs= 'tene_sub_filenames.txt'
 print(pairs)
