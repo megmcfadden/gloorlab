@@ -33,6 +33,6 @@ for element in tene_name_in:
     txt.write(element + "\n")
     txt.close
 txt_out = open("tene_sub_filenames_out.txt", "w")
-for element_out in tene_name_in:
+for element_out in tene_name_out:
     txt_out.write(element_out+"\n")
     txt_out.close
