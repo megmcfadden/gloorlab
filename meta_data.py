@@ -7,9 +7,9 @@ import csv
 from csv import writer
 
 
+gff=pd.read_table('tene_sub_filenames_out.txt', names=['gff'])
+gff2=gff['gff'].tolist()
 
-orf_ext = ['*.gff']
-files_orf = [o for o_ext in orf_ext for o in glob.glob(os.path.join(path, o_ext))]
 
 overlap=pd.read_table("/Volumes/ubdata/mmcfad/NCBI_Genomes/Output_files/July_2_sub.txt", sep='\t')
 
@@ -19,7 +19,7 @@ table_df=pd.DataFrame(columns=["Sequence","Length","BP_inside","Expected","Hmer_
 
 with open("/Volumes/ubdata/mmcfad/NCBI_Genomes/Output_files/Observed_expected_tene.txt", "w+") as w:
 
-    for i in range(len(files_orf)):
+    for i in range(len(gff2)):
         print(files_orf[i])
         #Determining the expected amounts inside vs outside open reading frames
         orf=gffpd.read_gff3(files_orf[i])
