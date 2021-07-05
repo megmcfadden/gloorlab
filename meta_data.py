@@ -43,7 +43,9 @@ with open("/Volumes/ubdata/mmcfad/NCBI_Genomes/Output_files/Observed_expected_te
             c_split=split[-1].replace(";","=").split("=")
             code=c_split[4]
 
+
             gc_split=split[-1].replace(";","=").split("=")
+            print(gc_split)
             GC=select_split[2]
             #determine the expected ratio of inside vs outside the open reading frame
 
