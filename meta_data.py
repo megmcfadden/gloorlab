@@ -51,7 +51,7 @@ with open("/Volumes/ubdata/mmcfad/NCBI_Genomes/Output_files/Observed_expected_te
 
             expected=(length-sum_expt)/sum_expt
 
-            data_expt={'Sequence':[sequence],'Length':[length],'ORF(BP)': [sum_expt], "Expected": [expected], 'Genetic_code':[code], 'GC':[GC_content]}
+            data_expt={'Sequence':[sequence],'Length':[length],'ORF(BP)': [sum_expt], "Expected": [expected], 'Genetic_code':[code], 'GC_Content':[GC]}
 
             df_expt=pd.DataFrame(data=data_expt)
 
