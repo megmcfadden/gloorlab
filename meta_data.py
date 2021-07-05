@@ -22,7 +22,7 @@ with open("/Volumes/ubdata/mmcfad/NCBI_Genomes/Output_files/Observed_expected_te
     for i in range(len(gff2)):
         print(gff2[i])
         #Determining the expected amounts inside vs outside open reading frames
-        orf=gffpd.read_gff3(gff2)[i])
+        orf=gffpd.read_gff3()(gff2)[i])
 
         df_orfLarge = pd.DataFrame(orf.df)
         selected_columns= df_orfLarge[["seq_id","start","end"]]
