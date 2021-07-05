@@ -20,9 +20,9 @@ table_df=pd.DataFrame(columns=["Sequence","Length","BP_inside","Expected","Hmer_
 with open("/Volumes/ubdata/mmcfad/NCBI_Genomes/Output_files/Observed_expected_tene.txt", "w+") as w:
 
     for i in range(len(gff2)):
-        print(files_orf[i])
+        print(gff2[i])
         #Determining the expected amounts inside vs outside open reading frames
-        orf=gffpd.read_gff3(files_orf[i])
+        orf=gffpd.read_gff3(gff2)[i])
 
         df_orfLarge = pd.DataFrame(orf.df)
         selected_columns= df_orfLarge[["seq_id","start","end"]]
