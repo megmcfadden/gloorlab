@@ -7,7 +7,7 @@ import csv
 from csv import writer
 
 
-gff=pd.read_table('tene_sub_filenames_out.txt', names=['gff'])
+gff=pd.read_table('tene_ALL_filenames_out.txt', names=['gff'])
 gff2=gff['gff'].tolist()
 
 
