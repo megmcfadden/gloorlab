@@ -11,13 +11,13 @@ gff=pd.read_table('tene_sub_filenames_out.txt', names=['gff'])
 gff2=gff['gff'].tolist()
 
 
-overlap=pd.read_table("/Volumes/ubdata/mmcfad/NCBI_Genomes/Output_files/July_2_sub.txt", sep='\t')
+overlap=pd.read_table("/Volumes/ubdata/mmcfad/NCBI_Genomes/Output_files/July_6_ALL.txt", sep='\t')
 
 expect_combined=[]
 
 table_df=pd.DataFrame(columns=["Sequence","Length","BP_inside","Expected","Hmer_inside(BP)", "Hmer_outside(BP)", "Observed"])
 
-with open("/Volumes/ubdata/mmcfad/NCBI_Genomes/Output_files/Observed_expected_tene.txt", "w+") as w:
+with open("/Volumes/ubdata/mmcfad/NCBI_Genomes/Output_files/Observed_expected_tene_ALL.txt", "w+") as w:
 
     for i in range(len(gff2)):
         print(gff2[i])
