@@ -5,8 +5,8 @@ import os, os.path
 import sys
 import pandas as pd
 
-hmer= pd.read_table('tene_sub_filenames_in.txt',names=['hmer'])
-gff=pd.read_table('tene_sub_filenames_out.txt', names=['gff'])
+hmer= pd.read_table('tene_ALL_filenames_in.txt',names=['hmer'])
+gff=pd.read_table('tene_ALL_filenames_out.txt', names=['gff'])
 
 
 hmer2=hmer['hmer'].tolist()
@@ -24,4 +24,4 @@ for file in hmer2:
 print(pairs)
 
 
-find_overlap(pairs,'/Volumes/ubdata/mmcfad/NCBI_Genomes/Output_files/July_2_sub.txt')
+find_overlap(pairs,'/Volumes/ubdata/mmcfad/NCBI_Genomes/Output_files/July_6_ALL.txt')

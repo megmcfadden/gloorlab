@@ -1,4 +1,4 @@
-filelist="/Volumes/ubdata/mmcfad/NCBI_Genomes/GCF_000019345.1_ASM1934v1_genomic.fna
+/Volumes/ubdata/mmcfad/NCBI_Genomes/GCF_000019345.1_ASM1934v1_genomic.fna
 /Volumes/ubdata/mmcfad/NCBI_Genomes/GCF_013367895.1_ASM1336789v1_genomic.fna
 /Volumes/ubdata/mmcfad/NCBI_Genomes/GCF_000025845.1_ASM2584v1_genomic.fna
 /Volumes/ubdata/mmcfad/NCBI_Genomes/GCF_000286675.1_ASM28667v1_genomic.fna
@@ -85,20 +85,4 @@ filelist="/Volumes/ubdata/mmcfad/NCBI_Genomes/GCF_000019345.1_ASM1934v1_genomic.
 /Volumes/ubdata/mmcfad/NCBI_Genomes/GCF_001281045.1_ASM128104v1_genomic.fna
 /Volumes/ubdata/mmcfad/NCBI_Genomes/GCF_000011225.1_ASM1122v1_genomic.fna
 /Volumes/ubdata/mmcfad/NCBI_Genomes/GCF_900660685.1_57572_G01-3_genomic.fna
-/Volumes/ubdata/mmcfad/NCBI_Genomes/GCF_009730595.1_ASM973059v1_genomic.fna"
-#Run prodigal to get the open reading frames
-for fasta in ${filelist}; do
-output=$(python3 prodigal_filenames.py $fasta)
-echo $fasta
-echo $output
-prodigal -i $fasta -o $output -a protein-translations.faa -f gff -g 4
-done
-
-#Execute HMER_Finder script
-#path=/Volumes/ubdata/mmcfad/NCBI_Genomes
-#path=/home/meg/Documents/project
-#python3 Hmer-finder.py $path
-
-#Execute Overlap-finder
-#outputname="Output_files/July_2_ALL.txt"
-#python3 Overlap-finder2.py $path $outputname
+/Volumes/ubdata/mmcfad/NCBI_Genomes/GCF_009730595.1_ASM973059v1_genomic.fna
