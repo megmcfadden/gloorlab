@@ -1,6 +1,6 @@
 
 #Run prodigal to get the open reading frames
-for fasta in $(ls /Volumes/ubdata/mmcfad/NCBI_Genomes); do
+for fasta in $(ls /Volumes/ubdata/mmcfad/NCBI_Genomes/*.fna); do
 output=$(python3 prodigal_filenames.py $fasta)
 echo $fasta
 echo $output
