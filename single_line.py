@@ -11,11 +11,10 @@ for x in files_fasta:
     output= input_location + organism_name + '_single.fna'
     outputlist.append(output)
 
-input2=files_fasta.tolist()
 
 pairs=[]
 
-for file in input2:
+for file in files_fasta:
     print(file)
     file_split = file.split('.fna')
     print(file_split[1])
