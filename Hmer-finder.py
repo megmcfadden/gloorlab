@@ -7,7 +7,7 @@ input_location = sys.argv[1]
 from hmer import find_hmer
 
 
-fasta_ext=['*.fna']
+fasta_ext=['*single.fna']
 files_fasta= [f for f_ext in fasta_ext for f in glob.glob(os.path.join(input_location,f_ext))]
 
 file_new=[]
