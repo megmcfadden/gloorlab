@@ -1,19 +1,23 @@
+
+input_location=/Volumes/ubdata/mmcfad/NCBI_Genomes
 fasta_ext=['*single.fna']
 files_fasta= [f for f_ext in fasta_ext for f in glob.glob(os.path.join(input_location,f_ext))]
-
-input_split=input.split('.fna')
-organism_name= input_split[0]
-output= organism_name + '_single.fna'
+output_list=[]
+for x in files_fasta:
+    input_split=x.split('.fna')
+    organism_name= input_split[0]
+    output= input_location + organism_name + '_single.fna'
+    outputlist.append(output)
 
 input2=files_fasta.tolist()
-output2=output.tolist()
+
 pairs=[]
 
 for file in input2:
     print(file)
     file_split = file.split('.fna')
     print(file_split[1])
-    match= [file for file in output2 if file_split[1] in file]
+    match= [file for file in outputlist if file_split[1] in file]
     pairs.append([file, match[0]])
 
 for i in range(len(pairs)):
