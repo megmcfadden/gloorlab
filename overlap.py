@@ -49,7 +49,7 @@ def find_overlap(pairs, file_output):
                 dfH['InORF(T/F)']=T_F_dataframe
 
                 dfCounts=dfH[['Sequence','Acession_ID','Length','Base','InORF(T/F)','Info']].value_counts().sort_index().reset_index(name="Counts")
-
+                print(dfCounts)
                 Hmer_total.append(dfCounts)
 
                 i+=1
