@@ -10,8 +10,8 @@
 #Execute HMER_Finder script
 path=/Volumes/ubdata/mmcfad/NCBI_Genomes
 #path=/home/meg/Documents/project
-python3 Hmer-finder.py $path
+#python3 Hmer-finder.py $path
 
 #Execute Overlap-finder
-#outputname="Output_files/July_2_ALL.txt"
-#python3 Overlap-finder2.py $path $outputname
+outputname="Output_files/July_26_noTENE.txt"
+python3 Overlap-finder.py $path $outputname
