@@ -16,8 +16,7 @@ print(outputlist)
 pairs=[]
 
 for file in files_fasta:
-
-    file_split = file.replace("NCBI_Genomes",".fna".split('.fna')
+    file_split = file.replace("NCBI_Genomes",".fna").split('.fna')
     match=[file for file in outputlist if file_split[1] in file]
     pairs.append([file, match[0]])
 
