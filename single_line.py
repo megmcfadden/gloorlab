@@ -4,14 +4,14 @@ import os, os.path
 input_location= "/Volumes/ubdata/mmcfad/NCBI_Genomes"
 fasta_ext=['*single.fna']
 files_fasta= [f for f_ext in fasta_ext for f in glob.glob(os.path.join(input_location,f_ext))]
-output_list=[]
+outputlist=[]
 for x in files_fasta:
     input_split=x.split('.fna')
     organism_name= input_split[0]
     output= input_location + organism_name + '_single.fna'
     outputlist.append(output)
 
-
+print(outputlist)
 pairs=[]
 
 for file in files_fasta:
