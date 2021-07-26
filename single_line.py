@@ -1,5 +1,5 @@
 
-input_location=/Volumes/ubdata/mmcfad/NCBI_Genomes
+input_location= "/Volumes/ubdata/mmcfad/NCBI_Genomes"
 fasta_ext=['*single.fna']
 files_fasta= [f for f_ext in fasta_ext for f in glob.glob(os.path.join(input_location,f_ext))]
 output_list=[]
