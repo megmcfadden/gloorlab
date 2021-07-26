@@ -12,7 +12,7 @@ for x in files_fasta:
     output= organism_name + '_single.fna'
     outputlist.append(output)
 
-print(outputlist)
+
 pairs=[]
 
 for file in files_fasta:
@@ -20,10 +20,10 @@ for file in files_fasta:
     match=[file for file in outputlist if file_split[1] in file]
     pairs.append([file, match[0]])
 
-print(pairs)
-
 
 for i in range(len(pairs)):
+    print(pairs[i][0])
+    print(pairs[i][1])
     with open(pairs[i][0]) as f_input, open(pairs[i][1], 'w+') as f_output:
         block = []
 
@@ -36,5 +36,5 @@ for i in range(len(pairs)):
             else:
                 block.append(line.strip())
 
-    if block:
-        f_output.write(''.join(block) + '\n')
+        if block:
+            f_output.write(''.join(block) + '\n')
