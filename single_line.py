@@ -9,7 +9,7 @@ outputlist=[]
 for x in files_fasta:
     input_split=x.split('.fna')
     organism_name= input_split[0]
-    output= input_location + organism_name + '_single.fna'
+    output= organism_name + '_single.fna'
     outputlist.append(output)
 
 print(outputlist)
