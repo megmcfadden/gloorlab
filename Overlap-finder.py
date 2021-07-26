@@ -4,8 +4,8 @@ import glob
 import os, os.path
 import sys
 
-hmer_ext = ['*.txt']
-orf_ext = ['*4orf.gff']
+hmer_ext = ['*single.txt']
+orf_ext = ['*orf.gff']
 
 
 path = sys.argv[1]
@@ -17,7 +17,7 @@ files_orf = [o for o_ext in orf_ext for o in glob.glob(os.path.join(path, o_ext)
 pairs = []
 
 for file in files_hmer:
-    file_split = file.replace('Hmer_', '.txt').split('.txt')
+    file_split = file.replace('HmerSingle_', '.txt').replace('single.txt','.txt').split('.txt')
     match= [file for file in files_orf if file_split[1] in file]
     pairs.append([file, match[0]])
 
