@@ -17,7 +17,7 @@ pairs=[]
 
 for i in files_fasta:
     split=i.replace(input_location,'.fna').replace('/','.fna').split('.fna')
-    name=input_location+"/"+"Hmer_"+split[2]+'.txt'
+    name=input_location+"/"+"HmerSingle_"+split[2]+'.txt'
     file_new.append(name)
     ident=split[2].split('_')
     accID=ident[0]+'_'+ident[1]
