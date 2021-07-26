@@ -27,7 +27,7 @@ def find_overlap(pairs, file_output):
 
             scaffolds=dfH['Sequence'].nunique()
             if scaffolds == 1:
-
+                print(dfH['Sequence'])
                 #using numpy array to combine the subtraction of Hmer from ORF for both start and end
 
                 arrayH=np.array(dfH[['Start','End']])
@@ -56,7 +56,7 @@ def find_overlap(pairs, file_output):
             else:
                 print("Skip")
                 i+=1
-        print(Hmer_total)
+
         Counts=pd.concat(Hmer_total)
 
         Counts.to_csv(w, sep="\t", index=False)
