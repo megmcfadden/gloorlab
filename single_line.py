@@ -21,17 +21,17 @@ for file in input2:
     pairs.append([file, match[0]])
 
 for i in range(len(pairs)):
-with open(pairs[i][0]) as f_input, open(pairs[i][1], 'w') as f_output:
-    block = []
+    with open(pairs[i][0]) as f_input, open(pairs[i][1], 'w') as f_output:
+        block = []
 
-    for line in f_input:
-        if line.startswith('>header'):
-            if block:
-                f_output.write(''.join(block) + '\n')
-                block = []
-            f_output.write(line)
-        else:
-            block.append(line.strip())
+        for line in f_input:
+            if line.startswith('>header'):
+                if block:
+                    f_output.write(''.join(block) + '\n')
+                    block = []
+                f_output.write(line)
+            else:
+                block.append(line.strip())
 
     if block:
         f_output.write(''.join(block) + '\n')
