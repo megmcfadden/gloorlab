@@ -4,6 +4,7 @@
 #num must be one smaller then desired - if looking for lengths of 4 and above imput 3
 def find_hmer(pair, num):
     for i in range(len(pair[0])):
+        print(pair)
         with open(pair[0][i], "r") as infile, open(pair[1][i], "w+") as w:
             contig = ident = base = start = end = info=-1
             for line in infile:
@@ -18,7 +19,7 @@ def find_hmer(pair, num):
                     base = -1
                     start = end = 1
                 else:
-                    for b in line.strip():
+                    for b in line:
                         if b !=base:
                             if end - start > num:
                                 w.write('\t'.join(map(str,[contig,ident,start,end,end-start,base,info]))+'\n')
