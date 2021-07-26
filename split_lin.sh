@@ -1,7 +1,5 @@
 for fasta in $(ls /Volumes/ubdata/mmcfad/NCBI_Genomes/*.fna); do
 output=$(python3 hmer_filenames.py $fasta)
-echo $fasta
-echo $output
 done
 
 cat /Volumes/ubdata/mmcfad/NCBI_Genomes/*.fna |\
