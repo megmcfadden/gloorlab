@@ -56,7 +56,7 @@ def find_overlap(pairs, file_output):
             else:
                 print("Skip")
                 i+=1
-
+        print(Hmer_total)
         Counts=pd.concat(Hmer_total)
 
         Counts.to_csv(w, sep="\t", index=False)
