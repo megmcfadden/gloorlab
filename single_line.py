@@ -1,3 +1,5 @@
+import glob
+import os, os.path
 
 input_location= "/Volumes/ubdata/mmcfad/NCBI_Genomes"
 fasta_ext=['*single.fna']
