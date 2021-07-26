@@ -24,7 +24,7 @@ print(pairs)
 
 
 for i in range(len(pairs)):
-    with open(pairs[i][0]) as f_input, open(pairs[i][1], 'w') as f_output:
+    with open(pairs[i][0]) as f_input, open(pairs[i][1], 'w+') as f_output:
         block = []
 
         for line in f_input:
